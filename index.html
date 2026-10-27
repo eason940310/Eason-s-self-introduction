@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>李英碩 Li Ying-shuo | 2D 動畫 × 視覺設計 × 動態特效 個人作品集</title>
+
+  <!-- SEO & Social Meta -->
+  <meta name="description"
+    content="你好，我是李英碩。熱愛動畫、遊戲與 F1 賽車。從傳統美術出發，一路跨足數位多媒體，目前在大學動畫科全心投入影像創作。精通 2D 動畫、Clip Studio Paint、After Effects 後期特效合成。">
+  <meta name="author" content="李英碩 Li Ying-shuo">
+
+  <!-- Google Fonts: Plus Jakarta Sans & Noto Sans TC -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Font Awesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Interactive Canvas Background (Theme-Aware) -->
+  <canvas id="bg-canvas"></canvas>
+  <div class="bg-grid-overlay"></div>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="container">
+      <a href="#" class="nav-brand">
+        <div class="brand-logo-mark">李</div>
+        <div class="brand-text-wrap">
+          <span class="brand-name">李英碩</span>
+          <span class="brand-desc">Li Ying-shuo</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#about" class="nav-link">關於我</a></li>
+          <li><a href="#journey" class="nav-link">學習歷程</a></li>
+          <li><a href="#skills" class="nav-link">專業技能</a></li>
+          <li><a href="#works" class="nav-link">精選作品</a></li>
+          <li><a href="#passions" class="nav-link">熱愛領域</a></li>
+          <li><a href="#contact" class="nav-link">與我聯絡</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Dual Theme Toggle Button -->
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="切換主題模式">
+          <span id="theme-toggle-icon" class="theme-toggle-indicator">☀️</span>
+          <span id="theme-toggle-text">淺色模式</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="about" class="hero-section">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-text-block">
+            <div class="hero-badge-wrap">
+              <span class="hero-badge">
+                <span class="pulse-dot"></span>
+                傳統美術 × 數位多媒體 × 大學動畫深造中
+              </span>
+            </div>
+
+            <h1 class="hero-title">
+              賦予靜態線條生命，<br>
+              在影格間駕馭<span class="gradient-text">速度與靈魂</span>。
+            </h1>
+
+            <p class="hero-description">
+              你好，我是<strong>李英碩</strong>。熱愛動畫、遊戲與 F1 賽車。<br>
+              從傳統美術班的紙筆素描、水彩色彩訓練出發，一路跨足數位多媒體與 2D 動畫，目前在大學動畫科全心投入影像創作。擅長角色設定、動態分鏡、原畫繪製與 After Effects 後期動態合成。
+            </p>
+
+            <div class="hero-actions">
+              <a href="#works" class="btn btn-primary">
+                <i class="fa-solid fa-play"></i> 瀏覽精選作品
+              </a>
+              <a href="#contact" class="btn btn-secondary">
+                <i class="fa-regular fa-paper-plane"></i> 與我聯絡
+              </a>
+            </div>
+          </div>
+
+          <!-- Hero Profile Card -->
+          <div class="hero-visual">
+            <div class="hero-card">
+              <div class="hero-card-header">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <div class="hero-avatar">
+                    <i class="fa-solid fa-user-astronaut"></i>
+                  </div>
+                  <div class="hero-card-meta">
+                    <h3>李英碩 (Li Ying-shuo)</h3>
+                    <p>動畫導演 / 2D 原畫 / 後期合成</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="hero-passions-list">
+                <div class="passion-item">
+                  <div class="passion-icon" style="color: #2b6cb0;">
+                    <i class="fa-solid fa-pen-nib"></i>
+                  </div>
+                  <div class="passion-info">
+                    <h4>2D 動畫與原畫分鏡</h4>
+                    <p>Clip Studio Paint 高效角色設定與動態繪製</p>
+                  </div>
+                </div>
+
+                <div class="passion-item">
+                  <div class="passion-icon" style="color: #e06d53;">
+                    <i class="fa-solid fa-paintbrush"></i>
+                  </div>
+                  <div class="passion-info">
+                    <h4>影像處理與視覺設計</h4>
+                    <p>紮實素描色彩底子，精準駕馭光影與氛圍</p>
+                  </div>
+                </div>
+
+                <div class="passion-item">
+                  <div class="passion-icon" style="color: #e10600;">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                  </div>
+                  <div class="passion-info">
+                    <h4>動態特效與後期合成</h4>
+                    <p>After Effects 震撼光影、粒子與節奏調度</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Interactive Theme Hint -->
+              <div class="theme-hint-banner">
+                <i class="fa-solid fa-circle-info" style="color: var(--accent-color);"></i>
+                <span><strong>背景互動亮點：</strong>右上角可隨時切換「淺色」與「深色」模式，並與滑鼠互動！</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Learning Journey Section -->
+    <section id="journey" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge"><i class="fa-solid fa-route"></i> 成長歷程</span>
+          <h2 class="section-title">學習歷程：<span class="gradient-text">藝術與數位的融合</span></h2>
+          <p class="section-subtitle">從正統紙筆的嚴格美術訓練，跨入數位多媒體，再到全心投入動態影像的深造歷程</p>
+        </div>
+
+        <div class="timeline-wrap">
+          <div class="timeline-line"></div>
+
+          <!-- Stage 1 -->
+          <div class="timeline-card-item">
+            <div class="timeline-node">
+              <i class="fa-solid fa-palette"></i>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <h3 class="timeline-stage-title">國中階段｜美術班</h3>
+                <span class="timeline-badge">純美術基石</span>
+              </div>
+              <p class="timeline-desc">
+                接受嚴格的素描、色彩與水彩等正統美術訓練，培養了深厚的美術基本功與視覺敏銳度。這段扎實的實體繪畫淬鍊，奠定了日後對於形體結構、空間透視與色彩氛圍的高敏銳感知。
+              </p>
+              <div class="timeline-tags">
+                <span class="chip">炭筆素描</span>
+                <span class="chip">水彩渲染</span>
+                <span class="chip">色彩學</span>
+                <span class="chip">形體結構</span>
+                <span class="chip">透視比例</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stage 2 -->
+          <div class="timeline-card-item">
+            <div class="timeline-node">
+              <i class="fa-solid fa-laptop-code"></i>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <h3 class="timeline-stage-title">高中階段｜多媒體設計科</h3>
+                <span class="timeline-badge">數位轉型跨界</span>
+              </div>
+              <p class="timeline-desc">
+                將扎實的美術基礎延伸至數位領域，接觸並掌握了 2D 繪圖、影像處理與基礎動態影像設計。學會如何以數位工具重現手繪質樸質感，並開展平面至動態視覺傳達的多元可能。
+              </p>
+              <div class="timeline-tags">
+                <span class="chip">數位繪圖</span>
+                <span class="chip">影像處理</span>
+                <span class="chip">視覺傳達</span>
+                <span class="chip">基礎動態設計</span>
+                <span class="chip">平面構成</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stage 3 -->
+          <div class="timeline-card-item">
+            <div class="timeline-node">
+              <i class="fa-solid fa-film"></i>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <h3 class="timeline-stage-title">大學階段｜動畫科（就讀中）</h3>
+                <span class="timeline-badge">專業影像深造</span>
+              </div>
+              <p class="timeline-desc">
+                現正於大學動畫科深造，專注於動畫編導、運動規律以及更進階的動態特效表現，致力於將腦海中的創意與畫面具現化。在影格的切分、節奏的把控與後期特效的融合上持續追求極致。
+              </p>
+              <div class="timeline-tags">
+                <span class="chip">動畫編導</span>
+                <span class="chip">經典運動規律</span>
+                <span class="chip">Clip Studio Paint 原畫</span>
+                <span class="chip">AE 後期特效</span>
+                <span class="chip">鏡頭調度</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Professional Skills Section -->
+    <section id="skills" class="section" style="background: var(--bg-tertiary);">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge"><i class="fa-solid fa-cube"></i> 能力全覽</span>
+          <h2 class="section-title">專業技能：<span class="gradient-text">創作工具與實戰能力</span></h2>
+          <p class="section-subtitle">結合手繪手感與數位科技，貫穿原畫前期、場景美術到後期動態特效</p>
+        </div>
+
+        <div class="skills-grid">
+          <!-- Skill Card 1 -->
+          <div class="skill-card">
+            <div class="skill-icon-box">
+              <i class="fa-solid fa-pencil"></i>
+            </div>
+            <h3 class="skill-card-title">2D 動畫創作</h3>
+            <div class="skill-software-badge">
+              <i class="fa-solid fa-check-circle"></i> 精通 Clip Studio Paint
+            </div>
+            <p class="skill-card-desc">
+              精通 Clip Studio Paint，能高效進行角色設定、動態分鏡與 2D 動畫原畫與動畫繪製。
+            </p>
+            <ul class="skill-features">
+              <li><i class="fa-solid fa-angle-right"></i> 原創角色設定與各角度三視圖</li>
+              <li><i class="fa-solid fa-angle-right"></i> 動態分鏡（Storyboard / Animatic）</li>
+              <li><i class="fa-solid fa-angle-right"></i> 原畫（Keyframes）與流暢中割繪製</li>
+              <li><i class="fa-solid fa-angle-right"></i> 重心位移、預備動態與加速度表現</li>
+            </ul>
+          </div>
+
+          <!-- Skill Card 2 -->
+          <div class="skill-card">
+            <div class="skill-icon-box">
+              <i class="fa-solid fa-brush"></i>
+            </div>
+            <h3 class="skill-card-title">影像處理與視覺設計</h3>
+            <div class="skill-software-badge">
+              <i class="fa-solid fa-check-circle"></i> 運用 Clip Studio Paint
+            </div>
+            <p class="skill-card-desc">
+              運用 Clip Studio Paint 進行插畫、場景繪製與素材修飾，展現極具故事性與深度的視覺畫面。
+            </p>
+            <ul class="skill-features">
+              <li><i class="fa-solid fa-angle-right"></i> 精細背景與透視空間場景繪製</li>
+              <li><i class="fa-solid fa-angle-right"></i> 光影冷暖層次與色彩調性塑造</li>
+              <li><i class="fa-solid fa-angle-right"></i> 質感素材修飾、筆刷紋理細節</li>
+              <li><i class="fa-solid fa-angle-right"></i> 角色立繪與高品質同人/原創插畫</li>
+            </ul>
+          </div>
+
+          <!-- Skill Card 3 -->
+          <div class="skill-card">
+            <div class="skill-icon-box">
+              <i class="fa-solid fa-burst"></i>
+            </div>
+            <h3 class="skill-card-title">動態特效與合成</h3>
+            <div class="skill-software-badge">
+              <i class="fa-solid fa-check-circle"></i> 掌握 Adobe After Effects (AE)
+            </div>
+            <p class="skill-card-desc">
+              掌握 After Effects (AE)，擅長動畫後期特效、動態圖形（Motion Graphics）設計與畫面合成。
+            </p>
+            <ul class="skill-features">
+              <li><i class="fa-solid fa-angle-right"></i> 動畫後期發光、火光與能量特效 (VFX)</li>
+              <li><i class="fa-solid fa-angle-right"></i> 動態圖形（Motion Graphics）節奏編排</li>
+              <li><i class="fa-solid fa-angle-right"></i> 多軌圖層合成、景深模糊與色差調校</li>
+              <li><i class="fa-solid fa-angle-right"></i> 畫面震動、鏡頭運動與衝擊張力營造</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Works Section -->
+    <section id="works" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge"><i class="fa-solid fa-gem"></i> 精選呈現</span>
+          <h2 class="section-title">精選作品：<span class="gradient-text">動態與靜態的視覺對話</span></h2>
+          <p class="section-subtitle">點擊任意作品可開啟高解析度檢視或影片流暢播放</p>
+        </div>
+
+        <!-- Filter Buttons -->
+        <div class="works-filter-bar">
+          <button class="filter-btn active" data-filter="all">
+            <i class="fa-solid fa-layer-group"></i> 全部作品 (6)
+          </button>
+          <button class="filter-btn" data-filter="animation">
+            <i class="fa-solid fa-film"></i> 2D 動畫 (2)
+          </button>
+          <button class="filter-btn" data-filter="vfx">
+            <i class="fa-solid fa-burst"></i> 動態特效 (1)
+          </button>
+          <button class="filter-btn" data-filter="illustration">
+            <i class="fa-solid fa-paintbrush"></i> 插畫設計 (3)
+          </button>
+        </div>
+
+        <!-- Works Grid -->
+        <div class="works-grid">
+
+          <!-- Work 1: Campus Illustration.png -->
+          <div class="work-card" data-category="illustration" data-category-label="插畫設計 / 場景透視" data-media-type="image"
+            data-media-src="images/Campus Illustration.png" data-title="校園日常空間插畫" data-tool="Clip Studio Paint"
+            data-desc="以細膩的光影處理與精確的透視比例，描繪出充滿日常寧靜氣息的校園空間。運用冷暖色溫的過渡，勾勒出陽光傾瀉與建築結構的層次美感。">
+            <div class="work-media-container">
+              <span class="work-type-pill"><i class="fa-regular fa-image"></i> 插畫</span>
+              <img src="images/Campus Illustration.png" alt="校園日常空間插畫" loading="lazy">
+              <div class="work-media-overlay">
+                <div class="work-play-badge">
+                  <i class="fa-solid fa-expand"></i>
+                </div>
+              </div>
+            </div>
+            <div class="work-content">
+              <h3 class="work-title">校園日常空間插畫</h3>
+              <p class="work-desc">運用細膩的光影處理與透視構圖，營造出寧靜而富有故事感的校園空間。</p>
+              <div class="work-footer">
+                <span class="work-tool"><i class="fa-solid fa-paint-brush"></i> Clip Studio Paint</span>
+                <span class="work-click-hint"><i class="fa-regular fa-eye"></i> 查看大圖</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Work 2: Original Illustration.png -->
+          <div class="work-card" data-category="illustration" data-category-label="插畫設計 / 原創角色" data-media-type="image"
+            data-media-src="images/Original Illustration.png" data-title="原創角色與世界觀插畫" data-tool="Clip Studio Paint"
+            data-desc="融合原創角色設定與豐富的道具細節，光影調性分明，表現出極具氛圍與神秘感的故事情境，體現扎實的素描造型功底與數位上色技術。">
+            <div class="work-media-container">
+              <span class="work-type-pill"><i class="fa-regular fa-image"></i> 插畫</span>
+              <img src="images/Original Illustration.png" alt="原創角色與世界觀插畫" loading="lazy">
+              <div class="work-media-overlay">
+                <div class="work-play-badge">
+                  <i class="fa-solid fa-expand"></i>
+                </div>
+              </div>
+            </div>
+            <div class="work-content">
+              <h3 class="work-title">原創角色與世界觀插畫</h3>
+              <p class="work-desc">精緻的人物設定與層次豐富的場景繪製，展現扎實的美術基本功與想像力。</p>
+              <div class="work-footer">
+                <span class="work-tool"><i class="fa-solid fa-paint-brush"></i> Clip Studio Paint</span>
+                <span class="work-click-hint"><i class="fa-regular fa-eye"></i> 查看大圖</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Work 3: Spy x Family fan creation.png -->
+          <div class="work-card" data-category="illustration" data-category-label="插畫設計 / 二次創作" data-media-type="image"
+            data-media-src="images/Spy x Family fan creation.png" data-title="間諜家家酒二創插畫" data-tool="Clip Studio Paint"
+            data-desc="以熱門作品《SPY×FAMILY 間諜家家酒》為靈感的二次創作插畫。生動捕捉角色神韻與經典互動氛圍，在保持原著特質的同時注入個人繪畫手感。">
+            <div class="work-media-container">
+              <span class="work-type-pill"><i class="fa-regular fa-image"></i> 插畫</span>
+              <img src="images/Spy x Family fan creation.png" alt="間諜家家酒二創插畫" loading="lazy">
+              <div class="work-media-overlay">
+                <div class="work-play-badge">
+                  <i class="fa-solid fa-expand"></i>
+                </div>
+              </div>
+            </div>
+            <div class="work-content">
+              <h3 class="work-title">間諜家家酒二創插畫</h3>
+              <p class="work-desc">生動捕捉角色神韻與經典互動氛圍，融合個人繪畫風格的高辨識度二創作品。</p>
+              <div class="work-footer">
+                <span class="work-tool"><i class="fa-solid fa-paint-brush"></i> Clip Studio Paint</span>
+                <span class="work-click-hint"><i class="fa-regular fa-eye"></i> 查看大圖</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Work 4: Cat-petting animation.mp4 -> YouTube: https://youtu.be/-0n3MPcnQzQ -->
+          <div class="work-card" data-category="animation" data-category-label="2D 動畫創作 / 動作規律"
+            data-media-type="youtube" data-media-src="https://youtu.be/-0n3MPcnQzQ" data-title="摸貓 2D 動態展示"
+            data-tool="Clip Studio Paint" data-desc="細緻刻畫手部動作的弧線與貓咪柔軟身軀的受力反饋。透過流暢的原畫與中割，展現生動自然的日常動作觀察與溫暖情緒傳達。">
+            <div class="work-media-container">
+              <span class="work-type-pill"><i class="fa-brands fa-youtube"></i> 2D 動畫</span>
+              <img src="https://img.youtube.com/vi/-0n3MPcnQzQ/maxresdefault.jpg"
+                onerror="this.onerror=null;this.src='https://img.youtube.com/vi/-0n3MPcnQzQ/hqdefault.jpg';"
+                alt="摸貓 2D 動態展示" loading="lazy">
+              <div class="work-media-overlay">
+                <div class="work-play-badge">
+                  <i class="fa-solid fa-play"></i>
+                </div>
+              </div>
+            </div>
+            <div class="work-content">
+              <h3 class="work-title">摸貓 2D 動態展示</h3>
+              <p class="work-desc">細緻刻畫手部動作與貓咪毛髮彈性反應，展現生動自然的日常動作規律。</p>
+              <div class="work-footer">
+                <span class="work-tool"><i class="fa-solid fa-pen-nib"></i> Clip Studio Paint</span>
+                <span class="work-click-hint"><i class="fa-brands fa-youtube"></i> 播放影片</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Work 5: River-crossing animation.mp4 -> YouTube: https://youtu.be/Cz980FHlG3w -->
+          <div class="work-card" data-category="animation" data-category-label="2D 動畫創作 / 運動規律"
+            data-media-type="youtube" data-media-src="https://youtu.be/Cz980FHlG3w" data-title="過河動作與運動規律設計"
+            data-tool="Clip Studio Paint"
+            data-desc="專注於經典動畫十二法則中的「預備動作 (Anticipation)」、「重力與弧線 (Arcs)」以及「落地緩衝 (Follow Through)」，體現扎實的動畫運動規律實作。">
+            <div class="work-media-container">
+              <span class="work-type-pill"><i class="fa-brands fa-youtube"></i> 2D 動畫</span>
+              <img src="https://img.youtube.com/vi/Cz980FHlG3w/maxresdefault.jpg"
+                onerror="this.onerror=null;this.src='https://img.youtube.com/vi/Cz980FHlG3w/hqdefault.jpg';"
+                alt="過河動作與運動規律設計" loading="lazy">
+              <div class="work-media-overlay">
+                <div class="work-play-badge">
+                  <i class="fa-solid fa-play"></i>
+                </div>
+              </div>
+            </div>
+            <div class="work-content">
+              <h3 class="work-title">過河動作連貫設計</h3>
+              <p class="work-desc">專注於身體重心的轉移、起跳緩衝與速度弧線，體現經典動畫運動規律。</p>
+              <div class="work-footer">
+                <span class="work-tool"><i class="fa-solid fa-pen-nib"></i> Clip Studio Paint</span>
+                <span class="work-click-hint"><i class="fa-brands fa-youtube"></i> 播放影片</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Work 6: AEanime.mp4 -> YouTube: https://youtu.be/XMuSE92etFQ -->
+          <div class="work-card" data-category="vfx" data-category-label="動態特效 / 後期合成" data-media-type="youtube"
+            data-media-src="https://youtu.be/XMuSE92etFQ" data-title="動態特效與後期合成短片" data-tool="Adobe After Effects"
+            data-desc="以 After Effects 深入進行畫面調度與視覺特效合成。結合鏡頭震動、炫光粒子、速度線條與音效剪輯節奏，營造高張力的戰鬥動態與視覺震撼感。">
+            <div class="work-media-container">
+              <span class="work-type-pill"><i class="fa-brands fa-youtube"></i> 動態特效</span>
+              <img src="https://img.youtube.com/vi/XMuSE92etFQ/maxresdefault.jpg"
+                onerror="this.onerror=null;this.src='https://img.youtube.com/vi/XMuSE92etFQ/hqdefault.jpg';"
+                alt="動態特效與後期合成短片" loading="lazy">
+              <div class="work-media-overlay">
+                <div class="work-play-badge">
+                  <i class="fa-solid fa-play"></i>
+                </div>
+              </div>
+            </div>
+            <div class="work-content">
+              <h3 class="work-title">動態特效與後期合成短片</h3>
+              <p class="work-desc">運用 After Effects 打造震撼的光影粒子、震動節奏與鏡頭合成，強化畫面張力。</p>
+              <div class="work-footer">
+                <span class="work-tool"><i class="fa-solid fa-wand-magic-sparkles"></i> After Effects</span>
+                <span class="work-click-hint"><i class="fa-brands fa-youtube"></i> 播放影片</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Passions & Inspirations Section -->
+    <section id="passions" class="section passions-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge"><i class="fa-solid fa-heart"></i> 創作靈魂</span>
+          <h2 class="section-title">熱愛領域：<span class="gradient-text">動漫、遊戲與極限競速</span></h2>
+          <p class="section-subtitle">每一份熱愛，都是推動畫面細節與動態張力的核心燃料</p>
+        </div>
+
+        <div class="passions-grid">
+          <!-- Passion 1 -->
+          <div class="passion-block">
+            <div class="passion-watermark"><i class="fa-solid fa-film"></i></div>
+            <div class="passion-icon-large" style="color: #2b6cb0;">🎬</div>
+            <h3 class="passion-title">動畫創作 (Animation)</h3>
+            <p class="passion-detail">
+              著迷於每秒 24 格中所蘊含的無限生命力。透過線條的伸縮曲張與時序快慢，讓紙上的角色與世界真正呼吸起來。
+            </p>
+          </div>
+
+          <!-- Passion 2 -->
+          <div class="passion-block">
+            <div class="passion-watermark"><i class="fa-solid fa-gamepad"></i></div>
+            <div class="passion-icon-large" style="color: #e06d53;">🎮</div>
+            <h3 class="passion-title">遊戲藝術 (Gaming)</h3>
+            <p class="passion-detail">
+              熱愛沉浸式的世界觀構建、角色動態回饋與場景氛圍感。探索遊戲美術如何與互動體驗完美結合，賦予玩家情緒共鳴。
+            </p>
+          </div>
+
+          <!-- Passion 3 -->
+          <div class="passion-block">
+            <div class="passion-watermark"><i class="fa-solid fa-flag-checkered"></i></div>
+            <div class="passion-icon-large" style="color: #e10600;">🏎️</div>
+            <h3 class="passion-title">F1 賽車 (Formula 1)</h3>
+            <p class="passion-detail">
+              崇尚極限速度、精密空氣動力學曲線與千分之一秒的競技節奏。將賽道的純粹張力與動態衝擊感化作影像創作的視覺節奏。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="contact-container">
+          <div class="contact-card-main">
+            <span class="section-badge"><i class="fa-regular fa-comments"></i> 保持聯絡</span>
+            <h2 class="section-title" style="margin-bottom: 0.5rem;">與我聯絡</h2>
+            <p class="contact-lead">期待與你探討動畫專案、原畫分鏡委託或動態特效合作！</p>
+            <p class="contact-sub">
+              不論是動畫製作、插畫委託、視覺設計合作，或是單純交流動漫與 F1 賽車心得，都非常歡迎隨時透過下方社群平台與我聯繫。
+            </p>
+
+            <!-- Social Links Cards -->
+            <div class="social-links-grid">
+              <!-- Facebook Card -->
+              <a href="https://www.facebook.com/li.ying.shuo.932495" target="_blank" rel="noopener noreferrer"
+                class="social-card fb-card">
+                <div class="social-icon-wrapper">
+                  <i class="fa-brands fa-facebook-f"></i>
+                </div>
+                <div class="social-info">
+                  <div class="social-platform">Facebook</div>
+                  <div class="social-handle">李英碩 (li.ying.shuo)</div>
+                </div>
+                <div class="social-arrow">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </div>
+              </a>
+
+              <!-- Instagram Card -->
+              <a href="https://www.instagram.com/eason940310/" target="_blank" rel="noopener noreferrer"
+                class="social-card ig-card">
+                <div class="social-icon-wrapper">
+                  <i class="fa-brands fa-instagram"></i>
+                </div>
+                <div class="social-info">
+                  <div class="social-platform">Instagram</div>
+                  <div class="social-handle">@eason940310</div>
+                </div>
+                <div class="social-arrow">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </div>
+              </a>
+            </div>
+
+            <div>
+              <a href="mailto:?subject=作品集合作邀約" class="btn btn-primary" style="font-size: 0.95rem;">
+                <i class="fa-solid fa-envelope"></i> 發送合作邀約
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-text">
+          <p>© 2026 <strong>李英碩 (Li Ying-shuo)</strong>. All Rights Reserved.</p>
+        </div>
+        <div class="footer-tags">
+          <span>🎨 傳統美術基底</span>
+          <span>•</span>
+          <span>🎬 2D 動畫原畫</span>
+          <span>•</span>
+          <span>🏎️ F1 極速美學</span>
+        </div>
+        <button id="back-to-top" class="back-to-top-btn" aria-label="回到頂端" title="回到頂端">
+          <i class="fa-solid fa-chevron-up"></i>
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox Modal for Full View -->
+  <div id="lightbox-modal" class="modal-overlay" aria-hidden="true" role="dialog">
+    <div class="modal-container">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <h3 id="modal-title">作品標題</h3>
+          <p id="modal-category">分類標籤</p>
+        </div>
+        <button id="modal-close" class="modal-close-btn" aria-label="關閉視窗">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div id="modal-viewport" class="modal-media-viewport">
+        <!-- Dynamic Image or Video Injected here -->
+      </div>
+      <div class="modal-body">
+        <p id="modal-desc" class="modal-desc-text">作品詳細說明...</p>
+        <div class="modal-meta-row">
+          <div id="modal-tool"><i class="fa-solid fa-paintbrush"></i> 使用軟體：Clip Studio Paint</div>
+          <div><i class="fa-regular fa-circle-check"></i> 李英碩 個人原創/動態作品</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main JavaScript File -->
+  <script src="script.js"></script>
+</body>
+
+</html>
