@@ -45,12 +45,12 @@ function initThemeManager() {
     if (toggleText && toggleIcon) {
       if (theme === 'dark') {
         toggleIcon.textContent = '🏎️';
-        toggleText.textContent = '深色模式';
-        toggleBtn.setAttribute('title', '切換為淺色模式');
+        toggleText.textContent = 'F1 極速模式';
+        toggleBtn.setAttribute('title', '點擊切換為藝術工坊主題');
       } else {
         toggleIcon.textContent = '🎨';
-        toggleText.textContent = '淺色模式';
-        toggleBtn.setAttribute('title', '切換為深色模式');
+        toggleText.textContent = '藝術工坊模式';
+        toggleBtn.setAttribute('title', '點擊切換為 F1 賽車極速主題');
       }
     }
     // Notify canvas engine if initialized
@@ -752,6 +752,13 @@ function initPortfolioWorks() {
     });
   });
 
+  // Helper: Extract YouTube Video ID from various URL formats
+  function extractYouTubeId(url) {
+    if (!url) return null;
+    const match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([\w-]{11})/);
+    return match ? match[1] : null;
+  }
+
   // Modal Open
   workCards.forEach(card => {
     card.addEventListener('click', () => {
@@ -761,6 +768,7 @@ function initPortfolioWorks() {
       const tool = card.getAttribute('data-tool');
       const mediaType = card.getAttribute('data-media-type'); // 'image' or 'video'
       const mediaSrc = card.getAttribute('data-media-src');
+      const metaStatus = document.getElementById('modal-meta-status');
 
       if (!modal) return;
 
@@ -770,15 +778,20 @@ function initPortfolioWorks() {
       modalTool.innerHTML = `<i class="fa-solid fa-paintbrush"></i> 使用軟體：${tool}`;
 
       modalViewport.innerHTML = '';
-      if (mediaType === 'youtube') {
-        const videoId = mediaSrc.split('/').pop();
+      const ytId = extractYouTubeId(mediaSrc);
+
+      if (ytId) {
+        // Embed YouTube Player
         const iframe = document.createElement('iframe');
-        iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+        iframe.src = `https://www.youtube-nocookie.com/embed/${ytId}?autoplay=1&rel=0`;
+        iframe.title = title;
+        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
         iframe.allowFullscreen = true;
-        iframe.style.width = '100%';
-        iframe.style.height = '60vh';
         modalViewport.appendChild(iframe);
+
+        if (metaStatus) {
+          metaStatus.innerHTML = `<a href="https://youtu.be/${ytId}" target="_blank" rel="noopener noreferrer" class="modal-yt-btn"><i class="fa-brands fa-youtube"></i> 在 YouTube 開啟觀看 <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:0.75rem;"></i></a>`;
+        }
       } else if (mediaType === 'video') {
         const videoElem = document.createElement('video');
         videoElem.src = mediaSrc;
@@ -788,11 +801,19 @@ function initPortfolioWorks() {
         videoElem.style.maxHeight = '60vh';
         videoElem.style.maxWidth = '100%';
         modalViewport.appendChild(videoElem);
+
+        if (metaStatus) {
+          metaStatus.innerHTML = `<i class="fa-regular fa-circle-check"></i> 李英碩 個人原創/動態作品`;
+        }
       } else {
         const imgElem = document.createElement('img');
         imgElem.src = mediaSrc;
         imgElem.alt = title;
         modalViewport.appendChild(imgElem);
+
+        if (metaStatus) {
+          metaStatus.innerHTML = `<i class="fa-regular fa-circle-check"></i> 李英碩 個人原創/動態作品`;
+        }
       }
 
       modal.classList.add('active');
@@ -805,9 +826,10 @@ function initPortfolioWorks() {
     if (!modal) return;
     modal.classList.remove('active');
     document.body.style.overflow = '';
-    // Pause any playing video inside viewport
+    // Pause any playing HTML5 video & remove iframe to stop playback instantly
     const vid = modalViewport.querySelector('video');
     if (vid) vid.pause();
+    modalViewport.innerHTML = '';
   }
 
   if (modalClose) modalClose.addEventListener('click', closeModal);
